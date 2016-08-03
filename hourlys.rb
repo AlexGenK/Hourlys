@@ -39,6 +39,7 @@ class Elmeter
 			@hostelm=alias_name[nam]
 		else
 			@hostelm=nam
+			puts "Alias do not exist: #{nam}|"
 		end
 
 		# пропускаем 5 строк
