@@ -75,14 +75,11 @@ class Elmeter
 
 		input.close
 
-		# если отклонения невелики - присваиваем нашу почасовку, иначе выводим сообщение об ошибке
-		# и останавливаем скрипт
-		if (otkl1.abs<10)&&(otkl2.abs<10)&&(otkl3.abs<10)
-			@hourly=a
-		else
-			puts "Script stop! File #{filename} include incorrect data."
-			exit
-		end
+		# если отклонения достаточно велики, выводим предупреждающее сообщение
+		puts "Warning! File #{filename} include incorrect data." if (otkl1.abs>10)||(otkl2.abs>10)||(otkl3.abs>10)
+
+		# присваиваем почасовку		
+		@hourly=a
 	end
 
 end
